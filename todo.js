@@ -1,6 +1,13 @@
 let Input=document.querySelector("#todoInput");
 let addbtn=document.querySelector('#AddBtn');
 let todoCont=document.querySelector('#todoItems');
+let BgColor=[
+    {backgroundColor:"#FFEEA9", color:"black"},
+    {backgroundColor:"#F9D689", color:"black"},
+    {backgroundColor:"#F6E9B2" , color:"black"},
+    {backgroundColor:"#FFE0B6" , color:"black"}
+
+];
 
 addbtn.addEventListener('click', Tasks);
 
@@ -21,6 +28,10 @@ function Tasks(){
     
     ItemDiv.classList='items'
     btnDiv.classList='btns'
+    let Colors=BgColor[BGColor()]
+
+    ItemDiv.style.backgroundColor=Colors.backgroundColor;
+    ItemDiv.style.color=Colors.color;
     
     
     deli.classList="fa-solid fa-trash";
@@ -63,4 +74,8 @@ function Delete(ItemDiv){
     para.innerHTML=ItemDiv.replaceWith(Input.value);
    })
  }
+
+function BGColor(){
+    return Math.floor(Math.random()*BgColor.length);
+}
 
